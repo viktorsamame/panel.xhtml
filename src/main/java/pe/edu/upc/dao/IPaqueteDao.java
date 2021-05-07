@@ -10,4 +10,6 @@ public interface IPaqueteDao {
 	public List<Paquete> listar();
 
 	public void eliminar(int idPaquete);
+	
+	public List<Paquete> findBynombrePaquete(Paquete p);
 }

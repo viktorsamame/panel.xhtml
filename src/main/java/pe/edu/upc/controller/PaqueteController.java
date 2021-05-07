@@ -10,7 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entity.Paquete;
-import pe.edu.upc.service.IMPaqueteService;
+import pe.edu.upc.service.IPaqueteService;
 
 @Named
 @RequestScoped
@@ -19,7 +19,7 @@ public class PaqueteController implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Inject
-	private IMPaqueteService mService;
+	private IPaqueteService pService;
 	private Paquete paquete;
 	List<Paquete> listaPaquetes;
 
@@ -36,12 +36,12 @@ public class PaqueteController implements Serializable {
 	}
 
 	public void insertar() {
-		mService.insertar(paquete);
+		pService.insertar(paquete);
 		limpiarPaquete();
 	}
 
 	public void listar() {
-		listaPaquetes = mService.listar();
+		listaPaquetes = pService.listar();
 	}
 
 	public void limpiarPaquete() {
@@ -49,10 +49,20 @@ public class PaqueteController implements Serializable {
 	}
 
 	public void eliminar(Paquete paquete) {
-		mService.eliminar(paquete.getIdPaquete());
+		pService.eliminar(paquete.getIdPaquete());
 		this.listar();
 	}
 
+	public void findByNombrePaquete() {
+		if (paquete.getNombrePaquete().isEmpty()) {
+			this.listar();
+		}
+		else {
+			listaPaquetes = this.pService.findBynombrePaquete(this.getPaquete());
+		}
+	}
+	
+	
 	public Paquete getPaquete() {
 		return paquete;
 	}
@@ -68,5 +78,7 @@ public class PaqueteController implements Serializable {
 	public void setListaPaquetes(List<Paquete> listaPaquetes) {
 		this.listaPaquetes = listaPaquetes;
 	}
+	
+	
 
 }

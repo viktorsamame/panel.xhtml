@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Turistas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Turistas</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idTurista" value="Id " styleClass="control-label" />
+			<p:inputText autocomplete="off" id="idTurista"
+				styleClass="form-control" value="#{turistaController.turista.idTurista}"
+				required="true" />
+			
+			<h:outputLabel for="nombreTurista" value="Nombre del Turista "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="nombreTurista"
+				styleClass="form-control"
+				value="#{turistaController.turista.nombreTurista}" maxlength="30"
+				required="true" />
+				
+				<h:outputLabel for="apellidoTurista" value="Apellido del Turista "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="apellidoTurista"
+				styleClass="form-control"
+				value="#{turistaController.turista.apellidoTurista}" maxlength="30"
+				required="true" />
+				
+				
+			<h:outputLabel for="celularTurista" value="Celular"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="celularTurista"
+				styleClass="form-control"
+				value="#{turistaController.turista.celularTurista}" maxlength="9"
+				required="true" />
+
+			
+			<h:outputLabel for="direccionTurista" value="Direccion"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="direccionTurista"
+				styleClass="form-control"
+				value="#{turistaController.turista.direccionTurista}" maxlength="30"
+				required="true" />
+				
+				
+			<h:outputLabel for="dniTurista" value="dni"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="dniTurista"
+				styleClass="form-control"
+				value="#{turistaController.turista.dniTurista}" maxlength="8"
+				required="true" />
+				
+			<h:outputLabel for="emailTurista" value="email"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="emailTurista"
+				styleClass="form-control"
+				value="#{turistaController.turista.emailTurista}" maxlength="30"
+				required="true" />
+
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{turistaController.insertar()}"
+				styleClass="btn btn-primary " update="@form" style="background-color:#F50C33"
+				action="listTurista?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listTurista?faces-redirect=true" immediate="true" 
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

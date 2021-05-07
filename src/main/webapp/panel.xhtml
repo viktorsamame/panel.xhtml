@@ -1,26 +1,104 @@
-
 <ui:composition template="master.xhtml" 
 	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:p="http://primefaces.org/ui">
+	<h:outputStylesheet name="css/main_base.css" />
 	
 	<ui:define name="title">
-		.:Listado de Tabla:.
+		Trekking - Gestión de reserva de turistas
 	</ui:define>
 	
 	<ui:define name="titleCont">
-		<span>Inicio</span>
+		<span>Trekking</span>
 	</ui:define>
 	
 	<ui:define name="content">
 		<h:form>
-			<p align="center" class="title-style">Trekking</p>
-			<div align="center">
-				<h:graphicImage value="/resources/img/tracking.jpg" height="50%" width="50%">
-				</h:graphicImage>
-			</div>
+		<p align="center" class="title-style" style="margin-bottom: 50px">Sistema de Gestión de Turistas</p>
+		<div class='container' align="center">
+			
+			
+			<div class='row'>
+					<!--Paquetes turisticos-->
+					<div class="card col-md-4 rounded-lg" style="width: 18rem;">
+  						<img class="img-fluid card-img-top rounded-lg" src="resources/img/Turismo.jpg" alt="Card image cap" style='width: 100%;
+   					 	object-fit: cover;'/>
+  						<div class="card-body">
+   					 		<h5 class="card-title">Paquetes Turísticos</h5>
+    						<a href="listPaquete.xhtml" class="btn btn-primary botonVerMas" style="background-color:#13293D;">Ver más</a>
+  						</div>
+					</div>
+
+					<!--Clientes-->
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/tursita.jpg" alt="Card image cap" style='width: 100%;
+   				 		object-fit: cover;'/>
+  						<div class="card-body">
+    						<h5 class="card-title">Registro de Clientes</h5>
+    						<a href="listTurista.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+
+
+					<!--Proveedores-->
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/hotel.jpg" alt="Card image cap" style='width: 100%;
+   						 object-fit: cover;'/>
+  						<div class="card-body">
+    						<h5 class="card-title">Proveedores</h5>
+    						<a href="listProveedor.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+
+					<!--Guias-->
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/guia.jpg" alt="Card image cap" style='width: 100%;
+   						 object-fit: cover;'/>
+  						<div class="card-body">
+    						<h5 class="card-title">Guias</h5>
+    						<a href="listGuia.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+					
+
+			</div> <!--Cierra primer row -->
+		</div><!--Cierra container-->		
+	
+	
+			<div class='container' align="center" style="margin-top:50px">	
+				<div class='row'><!--Segunda fila-->
+				
+					<!--Reserva-->
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/reserva.jpg" alt="Card image cap" style='width: 100%;
+    					object-fit: cover;'/>
+ 					 	<div class="card-body">
+    						<h5 class="card-title">Gestionar Reserva</h5>
+   						 	<a href="listTuristaPaquete.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+					
+					<!--Declaracion-->
+					<div class="card col-md-4 rounded" style="width: 18rem;">
+  						<img class="img-fluid card-img-top" src="resources/img/mincetur.jpg" alt="Card image cap" style='width: 100%;
+   						 object-fit: cover;'/>
+  						<div class="card-body">
+    						<h5 class="card-title">Declaracion</h5>
+    						<a href="listDeclaracion.xhtml" class="btn btn-primary" style="background-color:#13293D">Ver más</a>
+  						</div>
+					</div>
+					
+					
+					
+				</div>
+			</div><!--Cierra container-->
+			
+			
+		
+			
+			
 		</h:form>
 	</ui:define>
 	

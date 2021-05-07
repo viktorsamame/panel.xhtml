@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Guias:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Guias</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row">
+				<div class="col-sm-12" style="margin-top: 30px">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstGuia" var="gui"
+							value="#{guiaController.listaGuias}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen guias registrados" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{gui.idGuia}">
+								<h:outputText value="#{gui.idGuia}" />
+							</p:column>
+
+							<p:column headerText="Nombres" sortBy="#{gui.nombreGuia}">
+								<h:outputText value="#{gui.nombreGuia}" />
+							</p:column>
+							
+							<p:column headerText="Apellidos" sortBy="#{gui.apellidoGuia}">
+								<h:outputText value="#{gui.apellidoGuia}" />
+							</p:column>
+							
+							<p:column headerText="DNI" sortBy="#{gui.dniGuia}">
+								<h:outputText value="#{gui.dniGuia}" />
+							</p:column>
+							
+					
+							<p:column headerText="Celular" sortBy="#{gui.celularGuia}">
+								<h:outputText value="#{gui.celularGuia}" />
+							</p:column>
+							
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listGuia" value="Eliminar"
+									actionListener="#{guiaController.eliminar(gui)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>		
+			
+					<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Registrar nuevo Guia"						
+							action="#{guiaController.nuevoGuia()}"
+							styleClass="btn btn-primary mb-3 ajax=false" style="background-color:#13293D;"/>
+						<p:commandButton value="Buscar Guia"						
+							action="listGuiasBuscador.xhtml" 
+							styleClass="btn btn-primary mb-3 ajax=false" style="background-color:#13293D;"/>
+						
+					</div>
+				</div>
+			</div>							
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 

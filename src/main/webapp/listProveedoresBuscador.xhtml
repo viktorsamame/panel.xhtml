@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Búsqueda de Proveedor:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Proveedor</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+			<div class="row" align="left">		
+				<div class="row">
+				
+					<div class="col-sm-4">
+						<div class="form-group">
+							<i class="fas fa-search"></i>
+							<h:outputLabel for="name" value="Búsqueda por Nombre:"
+								styleClass="control-label" />
+							
+							<p:inputText placeholder="Nombre" autocomplete="off" id="name"
+							styleClass="form-control"
+							value="#{proveedorController.proveedor.nombreProveedor}" maxlength="30" />
+			
+						</div>
+					</div>				
+				
+				
+					<div class="col-sm-8 text-right">
+						<div class="form-group box-main-btn">
+							<span style="display: block; height:30px;"></span>
+							
+								<p:commandButton value="Limpiar" update="lstProveedor"
+									actionListener="#{proveedorController.limpiarProveedor()}"
+									styleClass="btn btn-default" ajax="false" />
+								<p:commandButton value="Buscar" update="lstProveedor"
+									actionListener="#{proveedorController.findByNombreProveedor()}"
+									styleClass="btn btn-primary" ajax="true" style="background-color:#F50C33;" />						
+							
+							<p:commandButton value="Nuevo"						
+								action="#{proveedorController.nuevoProveedor()}"
+								styleClass="btn btn-primary ajax=false" style="background-color:#13293D;" />
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						
+						<p:dataTable id="lstProveedor" var="pro"
+							value="#{proveedorController.listaProveedores}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{pro.idProveedor}">
+								<h:outputText value="#{pro.idProveedor}" />
+							</p:column>
+
+							<p:column headerText="Nombres" sortBy="#{pro.nombreProveedor}">
+								<h:outputText value="#{pro.nombreProveedor}" />
+							</p:column>
+							
+							<p:column headerText="Apellidos" sortBy="#{pro.apellidoProveedor}">
+								<h:outputText value="#{pro.apellidoProveedor}" />
+							</p:column>
+							
+							<p:column headerText="RUC" sortBy="#{pro.rucProveedor}">
+								<h:outputText value="#{pro.rucProveedor}" />
+							</p:column>
+							
+							<p:column headerText="Teléfono" sortBy="#{pro.telefonoProveedor}">
+								<h:outputText value="#{pro.telefonoProveedor}" />
+							</p:column>
+
+
+						</p:dataTable>
+						
+					</div>
+				</div>				
+			</div>									
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 

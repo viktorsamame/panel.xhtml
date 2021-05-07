@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html 	
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
+		
+<ui:composition template="master.xhtml"> 
+	
+	<ui:define name="title">
+		.:Listado de Proveedores:.
+	</ui:define>
+	
+	<ui:define name="titleCont">
+		<span>Proveedores</span>
+	</ui:define>
+	
+	<ui:define name="content">
+		<h:form>
+		
+	
+
+			<div class="row">
+				<div class="col-sm-12" style="margin-top: 30px">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstProveedor" var="pro"
+							value="#{proveedorController.listaProveedores}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{pro.idProveedor}">
+								<h:outputText value="#{pro.idProveedor}" />
+							</p:column>
+
+							<p:column headerText="Nombre" sortBy="#{pro.nombreProveedor}">
+								<h:outputText value="#{pro.nombreProveedor}" />
+							</p:column>
+							
+							<p:column headerText="RUC" sortBy="#{pro.rucProveedor}">
+								<h:outputText value="#{pro.rucProveedor}" />
+							</p:column>
+							
+							<p:column headerText="Telefono" sortBy="#{pro.telefonoProveedor}">
+								<h:outputText value="#{pro.telefonoProveedor}" />
+							</p:column>
+							
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="listProveedor" value="Eliminar"
+									actionListener="#{proveedorController.eliminar(pro)}" />
+							</p:column>
+
+						</p:dataTable>
+					</div>
+				</div>				
+			</div>		
+			
+					<div class="row">
+				<div class="col-sm-8 text-right">
+					<div class="form-group box-main-btn">
+						<span style="display: block; height:30px;"></span>
+						<p:commandButton value="Registrar nuevo Proveedor"						
+							action="#{proveedorController.nuevoProveedor()}"
+							styleClass="btn btn-primary mb-3 ajax=false" style="background-color:#13293D;"/>
+						<p:commandButton value="Buscar Proveedor"						
+							action="listProveedoresBuscador.xhtml" 
+							styleClass="btn btn-primary mb-3 ajax=false" style="background-color:#13293D;"/>	
+					</div>
+				</div>
+			</div>							
+		</h:form>
+	</ui:define>
+	
+	<ui:define name="footerCont">
+	</ui:define>
+		
+</ui:composition> 
+</html>
+ 

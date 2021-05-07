@@ -15,7 +15,9 @@
 		href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Ubuntu+Condensed'
 		rel='stylesheet' type='text/css' />
 	<link rel="shortcut icon" type="image/x-icon"
-		href="resources/img/favicon.ico" />
+		href="resources/img/trekking.png" />
+
+	<script src="https://kit.fontawesome.com/989889714c.js" crossorigin="anonymous"></script>
 
 	<h:outputStylesheet name="css/bootstrap.min.css" />
 	<h:outputStylesheet name="css/main_base.css" />
@@ -23,8 +25,7 @@
 	<ui:insert name="headCont"></ui:insert>
 </h:head>
 <h:body>
-	<nav class="navbar navbar-default navbar-fixed-top base_primary"
-		role="banner">
+	<nav class="navbar navbar-default navbar-fixed-top base_primary" style="background-color: #13293D" role="banner">
 		<div class="container">
 			<div class="navbar-header">
 				<button class="navbar-toggle" type="button" data-toggle="collapse"
@@ -35,45 +36,49 @@
 				</button>
 				<a class="navbar-brand"
 					style="display: table; padding-top: 5px; padding-bottom: 5px;"><img
-					src="resources/img/logo.png" alt="" height="50" /></a>
+					src="resources/img/incatrek-logo.jpg" alt="" height="50" /></a>
 			</div>
 
 		</div>
 	</nav>
-	<!--main-->
-	<div class="container base_fondo_fff"
+	<!--Contenido principal del DASHBOARD-->
+	
+	<div class="container base_fondo_fff pt-5"
 		style="min-height: 600px; border-radius: 4px; margin-top: 35px;">
 		<div class="row">
 			<!--left-->
-			<div class="col-md-3" id="leftCol">
-				<ul class="nav nav-stacked" id="sidebar">
-					<li id="sidebar-1"><a href="panel.xhtml"><i
-							class="icon-home"></i> Inicio</a></li>
-					<li id="sidebar-2"><a href="listPaquete.xhtml"><i
-							class="icon-user"></i> Paquetes</a></li>
-					<li id="sidebar-2"><a href="listPais.xhtml"><i
-							class="icon-user"></i> Turistas</a></li>
-					<li id="sidebar-2"><a href="listCiudad.xhtml"><i
-							class="icon-user"></i>Proveedores</a></li>				
-
+			<div class="col-md-3 pt-3" id="leftCol top_nav" style= "background-color:#13293D; height:600px;" >
+				<ul class="nav nav-stacked menu" id="sidebar" style="padding-top: 50px">
+					<li id="sidebar-1"><a href="panel.xhtml" style="color:white"><i class="fas fa-home"></i>Inicio</a></li>
+					<li id="sidebar-2"><a href="listPaquete.xhtml" style="color:white"><i class="fas fa-map-marked-alt"></i>Paquetes</a></li>
+					<li id="sidebar-3"><a href="listTurista.xhtml" style="color:white"><i class="fas fa-snowboarding"></i> Turistas</a></li>
+					<li id="sidebar-4"><a href="listProveedor.xhtml" style="color:white"><i class="fas fa-business-time"></i>Proveedores</a></li>
+					<li id="sidebar-5"><a href="listGuia.xhtml" style="color:white"><i class="fas fa-map"></i>Guia</a></li>
+					<li id="sidebar-6"><a href="listTuristaPaquete.xhtml" style="color:white"><i class="fas fa-suitcase"></i>Gestionar Reserva</a></li>				
+					<li id="sidebar-6"><a href="listDeclaracion.xhtml" style="color:white"><i class="fas fa-suitcase"></i>Declaración jurada</a></li>
 				</ul>
 			</div>
 			<!--/left-->
 
-			<!--right-->
-			<div class="col-md-9" style="padding-right: 30px">
+			<!--right Pantalla PRINCIPAL-->
+			<div class="col-md-9 text-center" style="padding-right: 30px">
 				<h2 id="sec0" class="title-style">
 					<ui:insert name="titleCont">Trekking</ui:insert>
 				</h2>
+				
+				
 				<!-- seccion para el contenido -->
 				<ui:insert name="content">
 				</ui:insert>
+				
+				
 			</div>
 			<!--/right-->
 		</div>
 		<!--/row-->
 	</div>
 	<!--/container-->
-	<ui:insert name="footerCont"></ui:insert>
+	<ui:insert name="footerCont">
+	</ui:insert>
 </h:body>
 </html>

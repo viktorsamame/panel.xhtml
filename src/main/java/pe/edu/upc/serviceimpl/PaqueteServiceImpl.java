@@ -7,29 +7,34 @@ import javax.inject.Inject;
 
 import pe.edu.upc.dao.IPaqueteDao;
 import pe.edu.upc.entity.Paquete;
-import pe.edu.upc.service.IMPaqueteService;
+import pe.edu.upc.service.IPaqueteService;
 
-public class PaqueteServiceImpl implements IMPaqueteService, Serializable {
+public class PaqueteServiceImpl implements IPaqueteService, Serializable {
 
 	private static final long serialVersionUID = 1L;
 	@Inject
-	private IPaqueteDao mD;
+	private IPaqueteDao pD;
 
 	@Override
 	public void insertar(Paquete paquete) {
-		mD.insertar(paquete);
+		pD.insertar(paquete);
 
 	}
 
 	@Override
 	public List<Paquete> listar() {
-		return mD.listar();
+		return pD.listar();
 	}
 
 	@Override
 	public void eliminar(int idPaquete) {
-		mD.eliminar(idPaquete);
+		pD.eliminar(idPaquete);
 
+	}
+	
+	@Override
+	public List<Paquete> findBynombrePaquete(Paquete p) {
+		return pD.findBynombrePaquete(p);
 	}
 
 }

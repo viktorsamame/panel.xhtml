@@ -17,14 +17,13 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="idMotor" value="Id " styleClass="control-label" />
-
+			<h:outputLabel for="idPaquete" value="Id " styleClass="control-label" />
 			<p:inputText autocomplete="off" id="idPaquete"
 				styleClass="form-control" value="#{paqueteController.paquete.idPaquete}"
 				required="true" />
-			<h:outputLabel for="nombrePaquete" value="Nombres "
+				
+			<h:outputLabel for="nombrePaquete" value="Nombre del Paquete "
 				styleClass="control-label" />
-
 			<p:inputText autocomplete="off" id="nombrePaquete"
 				styleClass="form-control"
 				value="#{paqueteController.paquete.nombrePaquete}" maxlength="30"
@@ -32,17 +31,45 @@
 
 			<h:outputLabel for="fechaPaquete" value="Fecha "
 				styleClass="control-label" />
-
 			<p:calendar id="fechaPaquete" pattern="dd/MM/yyyy"
 				value="#{paqueteController.paquete.fechaPaquete}" showOn="button"
 				timeZone="UTC" required="true">
 			</p:calendar>
+			
+			<h:outputLabel for="precioPaquete" value="Precio del Paquete "
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="precioPaquete"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.precioPaquete}" maxlength="5"
+				required="true" />
+			
+				
+			<h:outputLabel for="numCupos" value="Numero de cupos disponibles"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="numCupos"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.numCupos}" maxlength="5"
+				required="true" />	
+				
+			<h:outputLabel for="lugarOrigen" value="Lugar de Partida"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="lugarOrigen"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.lugarOrigen}" maxlength="20"
+				required="true" />		
+				
+			<h:outputLabel for="lugarDestino" value="Lugar de Destino"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="lugarDestino"
+				styleClass="form-control"
+				value="#{paqueteController.paquete.lugarDestino}" maxlength="20"
+				required="true" />		
 			<br />
 
 
 			<p:commandButton value="Grabar"
 				actionListener="#{paqueteController.insertar()}"
-				styleClass="btn btn-primary " update="@form"
+				styleClass="btn btn-primary " update="@form" style="background-color:#F50C33"
 				action="listPaquete?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
 				action="listPaquete?faces-redirect=true" immediate="true"

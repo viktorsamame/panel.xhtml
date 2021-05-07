@@ -22,7 +22,12 @@ public class PaqueteDaoImpl implements IPaqueteDao, Serializable {
 	@Transactional
 	@Override
 	public void insertar(Paquete paquete) {
-		em.persist(paquete);
+		try {
+			em.persist(paquete);
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 
 	}
 
@@ -30,7 +35,7 @@ public class PaqueteDaoImpl implements IPaqueteDao, Serializable {
 	@Override
 	public List<Paquete> listar() {
 		List<Paquete> lista = new ArrayList<Paquete>();
-		Query q = em.createQuery("select m from Paquete m");
+		Query q = em.createQuery("select p from Paquete p");
 		lista = (List<Paquete>) q.getResultList();
 		return lista;
 	}
@@ -41,7 +46,24 @@ public class PaqueteDaoImpl implements IPaqueteDao, Serializable {
 		Paquete paquete = new Paquete();
 		paquete = em.getReference(Paquete.class, idPaquete);
 		em.remove(paquete);
+		try {
+			paquete = em.getReference(Paquete.class,idPaquete); 
+			em.remove(paquete);
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+		}
 
 	}
 
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Paquete> findBynombrePaquete(Paquete p) {
+		List<Paquete> lista = new ArrayList<Paquete>();
+		Query q = em.createQuery("from Paquete p where p.nombrePaquete like ?1");
+		q.setParameter(1, "%" + p.getNombrePaquete() + "%");
+		lista = (List<Paquete>)q.getResultList();
+		return lista;
+	}
 }
